@@ -4,6 +4,24 @@ CREATE DATABASE IF NOT EXISTS banco_saint_patrick_db;
 
 USE banco_saint_patrick_db;
 
+
+CREATE SEQUENCE table_banks increment by 1  start 1;
+CREATE SEQUENCE table_accounts increment by 1  start 1;
+CREATE SEQUENCE table_cards increment by 1  start 1;
+CREATE SEQUENCE table_types increment by 1  start 1;
+CREATE SEQUENCE table_transactions increment by 1  start 1;
+CREATE SEQUENCE table_movements increment by 1  start 1;
+CREATE SEQUENCE table_users increment by 1  start 1;
+
+
+CREATE TABLE IF NOT EXISTS public.banks(
+	id INT  NOT NULL PRIMARY key default nextval('table_banks'),
+    name VARCHAR(50) NOT NULL,
+    branch_office VARCHAR(50) NOT NULL,
+    address VARCHAR(50) NOT NULL,
+    cuit int UNIQUE
+); 
+
 CREATE TABLE IF NOT EXISTS banks(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,

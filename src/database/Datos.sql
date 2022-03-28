@@ -19,4 +19,6 @@ INSERT INTO movements
 VALUES(default, 40000, 0, "Transferencia por pago de servicios", 1, 23654869);
 
 INSERT INTO users
-VALUES(default, "Matias", "Gonzales", 23654789, "Matias123", "$2a$10$KC0zK4y84xkdYu0/0iks2uFaTm5SNzugHXMsEkHdLoOKUp2yNKGzu", "matiasGonzales@gmail.com", 1), (default, "Susana", "Rodriguez", 25654321, "Susana123", "123456", "susanaRodriguez@gmail.com", 2);
+VALUES(default, "Matias", "Gonzales", 23654789, "Matias123","$2a$10$KC0zK4y84xkdYu0/0iks2uFaTm5SNzugHXMsEkHdLoOKUp2yNKGzu", "matiasGonzales@gmail.com", 1),
+(default, "Susana", "Rodriguez", 25654321, "Susana123", "123456", "susanaRodriguez@gmail.com", 2);
+

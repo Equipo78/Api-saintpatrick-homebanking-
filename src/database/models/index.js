@@ -5,15 +5,36 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
+console.log(env);
 const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+// if (config.use_env_variable) {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+// } else {
+  // let conn = {database:config.host,dialect:config.dialect}
+  // sequelize = new Sequelize(config.database, config.username, config.password conn);
+sequelize = new Sequelize({
+    database: process.env.DB_NAME, 
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD, 
+    host: process.env.DB_HOST,
+    dialect: 'postgres', 
+    pool: {
+        max: 5,
+        min: 0,
+        require: 30000,
+        idle: 10000
+    },
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false 
+      }
+    },
+    logging: false
+  });
+// }
 
 fs
   .readdirSync(__dirname)
@@ -22,6 +43,7 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    console.log("model",model);
     db[model.name] = model;
   });
 
@@ -32,6 +54,6 @@ Object.keys(db).forEach(modelName => {
 });
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// db.Sequelize = Sequelize;
 
 module.exports = db;
