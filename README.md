@@ -25,4 +25,15 @@ Escriba en su terminal `npm start ` ya con este levantara la api si todo esta en
 
 variables de entorno
 
-heroku config:add DIRECCION='dirreccion_real_mailer'
+local
+ - PORT=8000
+ - USER=yalxqgttlpqozl
+ - PASSWORD=bcb6cb1c7f60a8d16de56e87b61ddeec6e501bb8086fe9ddea7d6f66162755a0
+ - HOST=ec2-34-194-158-176.compute-1.amazonaws.com
+ - NAME=d7dktjbr1avls6
+ PORT=''
+heroku
+
+ - heroku config:add DIRECCION='dirreccion_real_mailer'
+
+
