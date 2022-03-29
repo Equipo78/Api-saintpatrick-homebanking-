@@ -20,10 +20,10 @@ let sequelize;
   // let conn = {database:config.host,dialect:config.dialect}
   // sequelize = new Sequelize(config.database, config.username, config.password conn);
 sequelize = new Sequelize({
-    database: process.env.DB_NAME, 
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD, 
-    host: process.env.DB_HOST,
+    database: process.env.NAME, 
+    username: process.env.USER,
+    password: process.env.PASSWORD, 
+    host: process.env.HOST,
     dialect: 'postgres', 
     pool: {
         max: 5,
