@@ -49,12 +49,12 @@ module.exports = (sequelize, dataTypes) =>{
 
     const User = sequelize.define(alias, cols, config)
 
-    // User.associate = (models)=>{
-    //     User.belongsTo(models.Account,{
-    //         as : "account",
-    //         foreignKey : "id_account"
-    //     });
-    // }
+    User.associate = (models)=>{
+        User.belongsTo(models.Account,{
+            as : "account",
+            foreignKey : "id_account"
+        });
+    }
     
 
     return User

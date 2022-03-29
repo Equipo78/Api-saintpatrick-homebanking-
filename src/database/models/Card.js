@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) =>{
             allowNull : false,
         },
         name : {
-            type : dataTypes.INTEGER(4),
+            type : dataTypes.INTEGER,
             allowNull : false,
         },
         id_account : {

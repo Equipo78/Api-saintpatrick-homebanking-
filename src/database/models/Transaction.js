@@ -3,7 +3,7 @@ module.exports = (sequelize, dataTypes) =>{
     let alias = "Transaction"
     let cols = { 
         nro_operation : {
-            type : dataTypes.INTEGER(10),
+            type : dataTypes.INTEGER,
             allowNull: false,
             primaryKey : true,
         },
