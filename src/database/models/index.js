@@ -9,6 +9,10 @@ console.log(env);
 const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
+console.log("<=============>");
+console.log(config);
+console.log(process.env.DB_HOST);
+console.log("<=============>");
 let sequelize;
 // if (config.use_env_variable) {
 //   sequelize = new Sequelize(process.env[config.use_env_variable], config);
@@ -27,7 +31,6 @@ sequelize = new Sequelize({
         require: 30000,
         idle: 10000
     },
-    
     logging: false
   });
 // }
