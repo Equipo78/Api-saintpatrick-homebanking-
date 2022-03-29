@@ -33,7 +33,7 @@ sequelize = new Sequelize({
     },
     dialectOptions: {
       ssl: {
-        require: true,
+        require: true, // enable only prd
             rejectUnauthorized: false 
           }
     },
