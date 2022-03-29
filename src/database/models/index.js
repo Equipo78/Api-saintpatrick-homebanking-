@@ -11,7 +11,7 @@ const db = {};
 
 console.log("<=============>");
 console.log(config);
-console.log(process.env.DB_HOST);
+console.log(process.env.HOST);
 console.log("<=============>");
 let sequelize;
 // if (config.use_env_variable) {
@@ -30,6 +30,9 @@ sequelize = new Sequelize({
         min: 0,
         require: 30000,
         idle: 10000
+    },
+    dialectOptions: {
+      ssl: true
     },
     logging: false
   });
