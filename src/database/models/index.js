@@ -27,15 +27,14 @@ sequelize = new Sequelize({
         require: 30000,
         idle: 10000
     },
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false 
-      }
-    },
+    
     logging: false
   });
 // }
-
+// dialectOptions: {
+//   ssl: {
+//     rejectUnauthorized: false 
+//   }
 fs
   .readdirSync(__dirname)
   .filter(file => {
