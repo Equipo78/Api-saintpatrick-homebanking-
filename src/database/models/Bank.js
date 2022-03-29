@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) =>{
             allowNull : false,
         },
         cuit : {
-            type : dataTypes.BIGINT(15),
+            type : dataTypes.BIGINT,
             allowNull : false,
             unique: true
         }
