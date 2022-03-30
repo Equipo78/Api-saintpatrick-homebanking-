@@ -22,3 +22,7 @@ En `src/database/config` tendra un JSON donde tendra configuracion de la conexio
 ######4. Levantar Api
 Una vez finalizado los anteriores paso podra levantar la api.
 Escriba en su terminal `npm start ` ya con este levantara la api si todo esta en orden.
+
+variables de entorno
+
+heroku config:add DIRECCION='dirreccion_real_mailer'
