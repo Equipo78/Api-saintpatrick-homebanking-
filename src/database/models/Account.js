@@ -32,16 +32,16 @@ module.exports = (sequelize, dataTypes) =>{
 
     const Account = sequelize.define(alias, cols, config)
 
-//     Account.associate = (models)=>{
+    Account.associate = (models)=>{
 //         Account.hasMany(models.Card,{
 //             as : "cards",
 //             foreignKey : "id_account"
 //         });
     
-//         Account.hasOne(models.User,{
-//             as : "user",
-//             foreignKey : "id_account"
-//         });
+        Account.hasOne(models.User,{
+            as : "user",
+            foreignKey : "id_account"
+        });
 //         Account.hasMany(models.Movement,{
 //             as : "movements",
 //             foreignKey : "id_account"
@@ -58,7 +58,7 @@ module.exports = (sequelize, dataTypes) =>{
 //             as : "bank",
 //             foreignKey : "id_bank"
 //         });
-//     }
+    }
 
     return Account
 
