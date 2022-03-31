@@ -5,7 +5,7 @@ const router = express.Router();
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
 
-router.get('/', mainController.users); 
+// router.get('/', mainController.users); 
 // router.get('/account', mainController.account); 
 // router.get('/bank', mainController.bank); 
 // router.get('/card', mainController.card); 

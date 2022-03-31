@@ -21,6 +21,11 @@ module.exports = (sequelize, dataTypes) =>{
             type : dataTypes.INTEGER,
             allowNull : false,
         },
+        cbu : {
+            type : dataTypes.INTEGER,
+            allowNull : false,
+            unique: true
+        },
     };  
 
 
@@ -33,31 +38,31 @@ module.exports = (sequelize, dataTypes) =>{
     const Account = sequelize.define(alias, cols, config)
 
     Account.associate = (models)=>{
-//         Account.hasMany(models.Card,{
-//             as : "cards",
-//             foreignKey : "id_account"
-//         });
+        Account.hasMany(models.Card,{
+            as : "cards",
+            foreignKey : "id_account"
+        });
     
         Account.hasOne(models.User,{
             as : "user",
             foreignKey : "id_account"
         });
-//         Account.hasMany(models.Movement,{
-//             as : "movements",
-//             foreignKey : "id_account"
-//         });
-//         Account.hasMany(models.Transaction,{
-//             as : "transaction-transmitter",
-//             foreignKey : "id_account_transmitter",
-//         });
-//         Account.hasMany(models.Transaction,{
-//             as : "transaction-receiver",
-//             foreignKey : 'id_account_receiver'
-//         });
-//         Account.belongsTo(models.Bank,{
-//             as : "bank",
-//             foreignKey : "id_bank"
-//         });
+        Account.hasMany(models.Movement,{
+            as : "movements",
+            foreignKey : "id_account"
+        });
+        Account.hasMany(models.Transaction,{
+            as : "transaction-transmitter",
+            foreignKey : "id_account_transmitter",
+        });
+        Account.hasMany(models.Transaction,{
+            as : "transaction-receiver",
+            foreignKey : 'id_account_receiver'
+        });
+        Account.belongsTo(models.Bank,{
+            as : "bank",
+            foreignKey : "id_bank"
+        });
     }
 
     return Account
