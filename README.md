@@ -23,7 +23,11 @@ En `src/database/config` tendra un JSON donde tendra configuracion de la conexio
 Una vez finalizado los anteriores paso podra levantar la api.
 Escriba en su terminal `npm start ` ya con este levantara la api si todo esta en orden.
 
+deploy to heroku branch
+- git push heroku production:master
+
 variables de entorno
+
 
 local
  - PORT=8000
