@@ -1,35 +1,40 @@
+const { Op } = require('sequelize')
 const db = require('../database/models')
 
 let controller ={
     account : (req, res) =>{
-        db.Account.findAll({
+        db.User.findOne({
+            attributes: ['id', 'name', 'surname','dni', 'user_name', 'email'],
+            where: {
+                id : req.session.user.id
+            },
             include : [
-                {association: 'cards'},
-                {association: 'user'},
-                {association: 'movements'},
-                {association: 'transactions'}
-            ]
+                {association: 'account', include: [{association : "movements"}]},
+            ],
         })
-        .then(result =>{
-            res.json({
-                result
+        .then(data =>{
+            res.status(202).json({
+                meta :{
+                    status : 202,
+                    find : "success",
+                },
+                data
             })
         })
         .catch(error => res.json({error}))
     },
     transaction : (req, res) =>{
-        db.Transaction.findAll({
-            attributes: ['nro_operation', 'description', 'amount'],
+        db.Movement.findAll({
             include : [
-                {association: 'account-transmitter'},
-                {association: 'account-receiver'},
-                {association: 'card-transmitter'},
-                {association: 'card-receiver'}
-            ]
+                {association: 'account'}
+            ],
+            where: {
+                id_account : req.session.user.id_account
+            }
         })
-        .then(result =>{
+        .then(data =>{
             res.json({
-                result
+                data
             })
         })
         .catch(error => res.json({error}))

@@ -3,14 +3,13 @@ const db = require('../database/models')
 const controller = {
 	users: (req, res) => {
 		db.User.findAll(
-		// 	{
-        //     include : [
-        //         {association: 'account'}
-        //     ]
-		// }
+			{
+            include : [
+                {association: 'account'}
+            ]
+		}
 		)
 		.then((users)=>{
-			console.log(users);
 			res.json({
 				users
 			})

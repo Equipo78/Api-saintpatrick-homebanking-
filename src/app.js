@@ -5,6 +5,7 @@ const express = require('express');
 const logger = require('morgan');
 const session = require('express-session')
 const isSession = require('./middlewares/isSession');
+const cors = require('cors')
 // ************ express() - (don't touch) ************
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(cors())
 app.use(session({
     secret: "authSecret",
     resave: false,
@@ -29,9 +30,9 @@ const accountRouter = require('./routes/account'); // Rutas main
 
 app.use('/auth', authRouter);
 
-// app.use(isSession)
-app.use('/', mainRouter);
-// app.use('/account', accountRouter);
+app.use(isSession)
+// app.use('/', mainRouter);
+app.use('/account', accountRouter);
 
 
 

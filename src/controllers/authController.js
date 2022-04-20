@@ -19,7 +19,8 @@ let controller = {
                         id: user.id,
                         name: user.name,
                         surname : user.surname,
-                        email: user.email
+                        email: user.email,
+                        id_account: user.id_account
                     };
 
                     res.locals.user = req.session.user;
@@ -28,8 +29,7 @@ let controller = {
                         meta : {
                             status : 202,
                             login : "success",
-                        },
-                        data : user
+                        }
                     })
                     
                 })
