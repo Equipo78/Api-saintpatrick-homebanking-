@@ -26,6 +26,7 @@ app.use(session({
 const mainRouter = require('./routes/main'); // Rutas main
 const authRouter = require('./routes/auth'); // Rutas main
 const accountRouter = require('./routes/account'); // Rutas main
+const favoriteRouter = require('./routes/favorite'); // Rutas main
 
 
 app.use('/auth', authRouter);
@@ -33,6 +34,7 @@ app.use('/auth', authRouter);
 // app.use(isSession)
 app.use('/', mainRouter);
 app.use('/account', accountRouter);
+app.use('/favorite', favoriteRouter);
 
 
 

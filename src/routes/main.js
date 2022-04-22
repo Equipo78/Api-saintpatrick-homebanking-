@@ -4,8 +4,10 @@ const router = express.Router();
 
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
+const favoriteController = require('../controllers/favoriteController');
 
 router.get('/', mainController.users); 
+// router.get('/favorite', favoriteController.users); 
 // router.get('/account', mainController.account); 
 // router.get('/bank', mainController.bank); 
 // router.get('/card', mainController.card); 
