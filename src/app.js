@@ -30,8 +30,8 @@ const accountRouter = require('./routes/account'); // Rutas main
 
 app.use('/auth', authRouter);
 
-app.use(isSession)
-// app.use('/', mainRouter);
+// app.use(isSession)
+app.use('/', mainRouter);
 app.use('/account', accountRouter);
 
 
