@@ -5,7 +5,8 @@ const controller = {
 		db.Favorite.findAll(
 			{
 			where:{
-				activo:true
+				activo:true,
+				id_user:req.params.id
 			},
             include : [
                 {association: 'account'},

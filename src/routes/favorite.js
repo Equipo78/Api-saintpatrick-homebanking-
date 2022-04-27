@@ -6,7 +6,7 @@ const router = express.Router();
 const mainController = require('../controllers/mainController');
 const favoriteController = require('../controllers/favoriteController');
 
-router.get('/', favoriteController.getFavorites); 
+router.get('/:id', favoriteController.getFavorites); 
 router.post('/add', favoriteController.addFavorites); 
 router.post('/delete', favoriteController.deleteFavorites); 
 router.post('/update', favoriteController.updateFavorites); 
