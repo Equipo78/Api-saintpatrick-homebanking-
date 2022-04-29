@@ -59,9 +59,9 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-sequelize.sync({alter:true})
-  .then(p=>console.log(p))
-  .catch(e=>console.log(e))
+sequelize.sync({alert:true})
+  .then(p=>console.log("p"))
+  .catch(e=>console.log("e"))
   
 db.sequelize = sequelize;
 
