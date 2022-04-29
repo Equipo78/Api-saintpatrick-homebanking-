@@ -2,17 +2,17 @@ module.exports = (sequelize, dataTypes) =>{
    
     let alias = "Favorite"
     let cols = { 
-        id : {
-            type : dataTypes.INTEGER,
-            allowNull: false,
-            primaryKey : true,
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
         },
         description:{
             type:dataTypes.STRING(20),
             allowNull:false
         },
         id_user : {
-            type : dataTypes.STRING(100),
+            type : dataTypes.INTEGER,
             allowNull : false,
         },
         id_account : {
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) =>{
     };  
 
     let config = {
-        tableName : "favorites",
+        tableName : "favoritess",
         timestamps : false
     }
 
@@ -35,11 +35,11 @@ module.exports = (sequelize, dataTypes) =>{
 
     Favorite.associate = (models)=>{
         Favorite.belongsTo(models.User,{
-            as : "user-associate",
+            as : "user",
             foreignKey : "id_user",
         });
         Favorite.belongsTo(models.Account,{
-            as : "account-associate",
+            as : "account",
             foreignKey : "id_account",
         });
     }

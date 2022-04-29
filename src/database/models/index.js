@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-console.log("basename",basename);
+// console.log("basename",basename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
@@ -59,8 +59,10 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-sequelize.sync({alter:true});
+sequelize.sync({alter:true})
+  .then(p=>console.log(p))
+  .catch(e=>console.log(e))
+  
 db.sequelize = sequelize;
-// db.Sequelize = Sequelize;
 
 module.exports = db;

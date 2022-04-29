@@ -2,6 +2,7 @@ const db = require('../database/models')
 
 const controller = {
 	getFavorites: (req, res) => {
+		console.log("id", req.params.id);
 		db.Favorite.findAll(
 			{
 			where:{
@@ -22,10 +23,13 @@ const controller = {
 	},
     addFavorites:async (req,res)=>{
         let fav=req.body;
+		console.log("fav", fav);
         return await db.Favorite.create({
+			id:1,
                 description:fav.description,
                 id_user:fav.id_user,
-                id_account:fav.id_account
+                id_account:fav.id_account,
+				activo:fav.activo
             })
 			.then((payload)=>{
 				res.json({
@@ -39,7 +43,7 @@ const controller = {
 			})
 
     },
-    deleteFavorites:(req,res)=>{
+    deleteFavorites:async (req,res)=>{
 		let fav=req.body;
  
 		await User.update({ activo: fav.activo }, {
@@ -59,7 +63,7 @@ const controller = {
 		})
 
     },
-    updateFavorites(req,res){
+    async updateFavorites(req,res){
 		let fav=req.body;
  
 		await User.update({ description: fav.description }, {
