@@ -16,12 +16,15 @@ module.exports =[
 
     body('password')
     .custom((value, {req}) => {
+        console.log(value)
+        console.log(req.body.email)
         return Users.findOne({
             where: {
                 email: req.body.email
             }
         })
-        .then(user => {      
+        .then(user => {  
+            console.log(user)
             if(!bcrypt.compareSync(value, user.password)){
                 return Promise.reject()
             }

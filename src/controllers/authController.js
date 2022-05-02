@@ -21,7 +21,7 @@ let controller = {
                         surname : user.surname,
                         email: user.email,
                         id_account: user.id_account
-                    };
+                    }; 
 
                     res.locals.user = req.session.user;
                     
