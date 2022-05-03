@@ -9,7 +9,11 @@ let controller ={
                 id : req.session.user.id
             },
             include : [
-                {association: 'account', include: [{association : "movements"}]},
+                {association: 'account', include: [
+                    {association : "movements"},
+                    {association: 'cards'},
+                    {association: 'bank'},
+                ]},
             ],
         })
         .then(data =>{
@@ -38,7 +42,12 @@ let controller ={
         db.Account.findOne({
             where : {
                 cbu : req.query.cbu
-            }
+            },
+            include : [
+                {association: 'cards'},
+                {association: 'user'},
+                {association: 'bank'},
+            ]
         })
         .then(account =>{
             if (account) {

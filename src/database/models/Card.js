@@ -46,14 +46,6 @@ module.exports = (sequelize, dataTypes) =>{
             as : "account",
             foreignKey : "id_account"
         });
-        Card.hasMany(models.Transaction,{
-            as : "transactions1",
-            foreignKey : "id_card_transmitter",
-        });
-        Card.hasMany(models.Transaction,{
-            as : "transactions2",
-            foreignKey : 'id_card_receiver'
-        });
     }
 
     return Card

@@ -15,15 +15,7 @@ module.exports = (sequelize, dataTypes) =>{
             type : dataTypes.INTEGER,
             allowNull : false,
         },
-        id_card_transmitter: {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-        },
         id_account_transmitter: {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-        },
-        id_card_receiver: {
             type : dataTypes.INTEGER,
             allowNull : false,
         },
@@ -58,14 +50,6 @@ module.exports = (sequelize, dataTypes) =>{
         Transaction.belongsTo(models.Account,{
             as : "account-receiver",
             foreignKey : "id_account_receiver",
-        });
-        Transaction.belongsTo(models.Card,{
-            as : "card-transmitter",
-            foreignKey : "id_card_transmitter",
-        });
-        Transaction.belongsTo(models.Card,{
-            as : "card-receiver",
-            foreignKey : "id_card_receiver",
         });
         Transaction.hasOne(models.Movement,{
             as : "movement",
