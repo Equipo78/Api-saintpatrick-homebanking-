@@ -5,6 +5,7 @@ const controller = require('../controllers/transactionsController');
 
 
 router.post('/', controller.transaction); 
+router.get('/existTransaction', controller.existNro); 
 
 
 
